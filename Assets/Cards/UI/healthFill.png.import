@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daxgwyn8xf3nk"
-path="res://.godot/imported/beholder.png-6d19784ec2209fe29f252716d34d1bce.ctex"
+uid="uid://bmfdvdggfg0g"
+path="res://.godot/imported/healthFill.png-be352921afd359c4802501fac9c0ba20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/Units/beholder.png"
-dest_files=["res://.godot/imported/beholder.png-6d19784ec2209fe29f252716d34d1bce.ctex"]
+source_file="res://Assets/Cards/UI/healthFill.png"
+dest_files=["res://.godot/imported/healthFill.png-be352921afd359c4802501fac9c0ba20.ctex"]
 
 [params]
 

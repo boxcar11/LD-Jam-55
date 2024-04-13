@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg83tqr02x2a2"
-path="res://.godot/imported/guard.png-3c4e68c781476142abd7cc41f1fc8e55.ctex"
+uid="uid://cj7tqe12w3kuv"
+path="res://.godot/imported/healthBar.png-8eca3c58e77c58deac03522bbc4231e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/Units/guard.png"
-dest_files=["res://.godot/imported/guard.png-3c4e68c781476142abd7cc41f1fc8e55.ctex"]
+source_file="res://Assets/Cards/UI/healthBar.png"
+dest_files=["res://.godot/imported/healthBar.png-8eca3c58e77c58deac03522bbc4231e8.ctex"]
 
 [params]
 

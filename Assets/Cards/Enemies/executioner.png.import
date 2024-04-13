@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8nuxj23pftd6"
-path="res://.godot/imported/wizard.png-952d60e844a9de1e285d89bd3219e114.ctex"
+uid="uid://x6l0skx748ti"
+path="res://.godot/imported/executioner.png-2e49f44e5826df63168c46b63560db10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/Units/wizard.png"
-dest_files=["res://.godot/imported/wizard.png-952d60e844a9de1e285d89bd3219e114.ctex"]
+source_file="res://Assets/Cards/Enemies/executioner.png"
+dest_files=["res://.godot/imported/executioner.png-2e49f44e5826df63168c46b63560db10.ctex"]
 
 [params]
 

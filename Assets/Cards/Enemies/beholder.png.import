@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb05adcdwks7f"
-path="res://.godot/imported/cultist.png-c332bf575808831d77aa2c3e5cc49f49.ctex"
+uid="uid://daxgwyn8xf3nk"
+path="res://.godot/imported/beholder.png-c678fc972cdfc083735cd9071dbf85dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/Units/cultist.png"
-dest_files=["res://.godot/imported/cultist.png-c332bf575808831d77aa2c3e5cc49f49.ctex"]
+source_file="res://Assets/Cards/Enemies/beholder.png"
+dest_files=["res://.godot/imported/beholder.png-c678fc972cdfc083735cd9071dbf85dd.ctex"]
 
 [params]
 

@@ -167,7 +167,13 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
+[node name="Focus" type="TextureButton" parent="."]
+layout_mode = 2
+stretch_mode = 0
+
 [node name="CardBack" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("4_18td3")
 centered = false
+
+[connection signal="mouse_entered" from="Focus" to="." method="_on_focus_mouse_entered"]
+[connection signal="mouse_exited" from="Focus" to="." method="_on_focus_mouse_exited"]

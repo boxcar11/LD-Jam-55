@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm8ou0yfwfq8m"
-path="res://.godot/imported/Bunny.png-6cad11f317fb4944904e8a9aab9aea2f.ctex"
+uid="uid://cjwq6sbfn0pek"
+path="res://.godot/imported/background001.png-6319ec1967a170ff77aa38974fe12929.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Bunny.png"
-dest_files=["res://.godot/imported/Bunny.png-6cad11f317fb4944904e8a9aab9aea2f.ctex"]
+source_file="res://Assets/Cards/Units/background001.png"
+dest_files=["res://.godot/imported/background001.png-6319ec1967a170ff77aa38974fe12929.ctex"]
 
 [params]
 

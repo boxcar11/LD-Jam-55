@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br8e58uvhr8jx"
-path="res://.godot/imported/armor001.png-ea8374fdd6ee26b5e3366faa4ec27cc6.ctex"
+uid="uid://v0xky6vbgvsy"
+path="res://.godot/imported/waterElemental.png-51dd559023a8645a8b5fd796b4a34a60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/armor001.png"
-dest_files=["res://.godot/imported/armor001.png-ea8374fdd6ee26b5e3366faa4ec27cc6.ctex"]
+source_file="res://Assets/Cards/Units/waterElemental.png"
+dest_files=["res://.godot/imported/waterElemental.png-51dd559023a8645a8b5fd796b4a34a60.ctex"]
 
 [params]
 

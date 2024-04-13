@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2ixyixhalydh"
-path="res://.godot/imported/air elemental.png-4c94e704c4e96f6d6a9c59c6b98f2318.ctex"
+uid="uid://cru47s86mmmr2"
+path="res://.godot/imported/red_pressed.png-bc105b39c28e1720b098f602737e430b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/air elemental.png"
-dest_files=["res://.godot/imported/air elemental.png-4c94e704c4e96f6d6a9c59c6b98f2318.ctex"]
+source_file="res://Assets/Cards/red_pressed.png"
+dest_files=["res://.godot/imported/red_pressed.png-bc105b39c28e1720b098f602737e430b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di04blnu7hd8b"
-path="res://.godot/imported/shield001.png-90d2d56be2290e0aa4e445b5c93f8300.ctex"
+uid="uid://c2ixyixhalydh"
+path="res://.godot/imported/air elemental.png-268a694bb85f4cdb29c411d86b9058de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/shield001.png"
-dest_files=["res://.godot/imported/shield001.png-90d2d56be2290e0aa4e445b5c93f8300.ctex"]
+source_file="res://Assets/Cards/Units/air elemental.png"
+dest_files=["res://.godot/imported/air elemental.png-268a694bb85f4cdb29c411d86b9058de.ctex"]
 
 [params]
 

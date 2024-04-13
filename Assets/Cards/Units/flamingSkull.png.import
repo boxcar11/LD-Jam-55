@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u0gkcq1y01bf"
-path="res://.godot/imported/Footman.png-435e9fba106381edaa7d079b13edfb46.ctex"
+uid="uid://32sw2qnx7rt0"
+path="res://.godot/imported/flamingSkull.png-c0960af9c8c0d6c9a38151842f97fd91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/Units/Footman.png"
-dest_files=["res://.godot/imported/Footman.png-435e9fba106381edaa7d079b13edfb46.ctex"]
+source_file="res://Assets/Cards/Units/flamingSkull.png"
+dest_files=["res://.godot/imported/flamingSkull.png-c0960af9c8c0d6c9a38151842f97fd91.ctex"]
 
 [params]
 

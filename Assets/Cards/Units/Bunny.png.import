@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1s3x0rrs64ew"
-path="res://.godot/imported/Sword001.png-69a2352188b7f9a9edb25bbf1cfa4a42.ctex"
+uid="uid://cm8ou0yfwfq8m"
+path="res://.godot/imported/Bunny.png-08a696c74afa13ca604379f8cf595616.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sword001.png"
-dest_files=["res://.godot/imported/Sword001.png-69a2352188b7f9a9edb25bbf1cfa4a42.ctex"]
+source_file="res://Assets/Cards/Units/Bunny.png"
+dest_files=["res://.godot/imported/Bunny.png-08a696c74afa13ca604379f8cf595616.ctex"]
 
 [params]
 

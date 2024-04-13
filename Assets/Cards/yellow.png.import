@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v0xky6vbgvsy"
-path="res://.godot/imported/waterElemental.png-5b3178c9d96e0c1522538af8e806910b.ctex"
+uid="uid://etdwkftius47"
+path="res://.godot/imported/yellow.png-f70f718050ebd6d3de187290cdb50ede.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/waterElemental.png"
-dest_files=["res://.godot/imported/waterElemental.png-5b3178c9d96e0c1522538af8e806910b.ctex"]
+source_file="res://Assets/Cards/yellow.png"
+dest_files=["res://.godot/imported/yellow.png-f70f718050ebd6d3de187290cdb50ede.ctex"]
 
 [params]
 

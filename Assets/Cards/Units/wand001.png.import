@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cllrxl213tt4m"
-path="res://.godot/imported/earthElement.png-70ca8e2bffa51503158eea5dd8aa2114.ctex"
+uid="uid://duir1lah5lirh"
+path="res://.godot/imported/wand001.png-ec3edef05aa1845fed8ca7901e448ddc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/earthElement.png"
-dest_files=["res://.godot/imported/earthElement.png-70ca8e2bffa51503158eea5dd8aa2114.ctex"]
+source_file="res://Assets/Cards/Units/wand001.png"
+dest_files=["res://.godot/imported/wand001.png-ec3edef05aa1845fed8ca7901e448ddc.ctex"]
 
 [params]
 

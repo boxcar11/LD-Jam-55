@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://32sw2qnx7rt0"
-path="res://.godot/imported/flamingSkull.png-ebc378cebde13d3da329ced32110ecba.ctex"
+uid="uid://cllrxl213tt4m"
+path="res://.godot/imported/earthElement.png-2cd3ea4c4514dac6fa56d2e28f765a27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/flamingSkull.png"
-dest_files=["res://.godot/imported/flamingSkull.png-ebc378cebde13d3da329ced32110ecba.ctex"]
+source_file="res://Assets/Cards/Units/earthElement.png"
+dest_files=["res://.godot/imported/earthElement.png-2cd3ea4c4514dac6fa56d2e28f765a27.ctex"]
 
 [params]
 

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bykosfclelsni"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_iifnu"]
+[ext_resource type="Texture2D" uid="uid://32sw2qnx7rt0" path="res://Assets/Cards/Units/flamingSkull.png" id="1_tgp7d"]
+[ext_resource type="PackedScene" uid="uid://bxxiwrtjghjp7" path="res://Bar.tscn" id="2_16ksw"]
+
+[node name="Enemy" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_iifnu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ImageContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="Image" type="Sprite2D" parent="VBoxContainer/ImageContainer"]
+texture = ExtResource("1_tgp7d")
+centered = false
+
+[node name="Bar" parent="VBoxContainer" instance=ExtResource("2_16ksw")]
+layout_mode = 2

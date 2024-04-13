@@ -22,6 +22,15 @@ var NumberCardsHand = 0
 var CardNum = 0
 var NeighborCard
 var Move_Neighbor_Card_Check = false
+var state = InHand
+var CARD_SELECT = true
+var ZoomingIn = true
+var oldstate
+var INMOUSETIME = 0.1
+var MovingtoPlay = false
+var targetscale = Vector2()
+var DiscardPile = Vector2()
+var MovingToDiscard = false
 
 enum{
 	InHand,
@@ -29,10 +38,62 @@ enum{
 	InMouse,
 	FocusInHand,
 	MoveDrawnCardToHand,
-	ReOrganizeHand
+	ReOrganizeHand,
+	MoveDrawnCardToDiscard
 }
 
-var state = InHand
+func _input(event):
+	match state:
+		FocusInHand, InMouse, InPlay:
+			if event.is_action_pressed("leftclick"): # Pick up card
+				if CARD_SELECT:
+					oldstate = state
+					state = InMouse
+					setup = true
+					CARD_SELECT = false
+			if event.is_action_released("leftclick"):
+				if CARD_SELECT == false:
+					if oldstate == FocusInHand: #Putting a card in to slot
+						var CardSlots = $"../../CardSlots"
+						var cardSlotEmpty = $'../../'.cardSlotEmpty
+						for i in range(CardSlots.get_child_count()):
+							if cardSlotEmpty[i]:
+								var CardSlotPos = CardSlots.get_child(i).position
+								var CardSlotSize = CardSlots.get_child(i).size
+								var mousepos = get_global_mouse_position()
+								if mousepos.x < CardSlotPos.x + CardSlotSize.x && mousepos.x > CardSlotPos.x && mousepos.y < CardSlotPos.y + CardSlotSize.y && mousepos.y > CardSlotPos.y:
+									setup = true
+									MovingtoPlay = true
+									targetpos = CardSlotPos - $'../../'.CardSize/2
+									targetscale = CardSlotSize/size
+									state = InPlay
+									CARD_SELECT = true
+									break
+						if state != InPlay:
+							setup = true
+							targetpos = Cardpos
+							state = ReOrganizeHand
+							CARD_SELECT = true
+					else: # Handle once card is in play
+						var Enemies = $'../../Enemies'
+						for i in range(Enemies.get_child_count()):
+								var EnemyPos = Enemies.get_child(i).position
+								var EnemySize = Enemies.get_child(i).size
+								var mousepos = get_global_mouse_position()
+								if mousepos.x < EnemyPos.x + EnemySize.x && mousepos.x > EnemyPos.x && mousepos.y < EnemyPos.y + EnemySize.y && mousepos.y > EnemyPos.y:
+									# deal with damage
+									var AttackNo = int($Bars/BottomBar/Attack/CenterContainer/AandR.text.left(1))
+									Enemies.get_child(i).ChangeHealth(AttackNo)
+									setup = true
+									MovingToDiscard = true
+									state = MoveDrawnCardToDiscard
+									CARD_SELECT = true
+									break
+						if CARD_SELECT == false:
+							setup = true
+							MovingtoPlay = true
+							state = InPlay
+							CARD_SELECT = true
 
 func _ready():
 	# print(CardInfo)
@@ -57,32 +118,56 @@ func _physics_process(delta):
 		InHand:
 			pass
 		InPlay:
-			pass
+			if MovingtoPlay:
+				if setup:
+					Setup()
+				if t <= 1:				
+					position = startpos.lerp(targetpos, t)
+					rotation_degrees = startrot * (1-t) + 0*t
+					scale = startscale * (1-t) + targetscale*t
+					t += delta/float(INMOUSETIME)
+				else:
+					position = targetpos
+					rotation_degrees = 0
+					scale = targetscale
+					MovingtoPlay = false
+					$'../../'.ReParentCard(CardNum)
 		InMouse:
-			pass
-		FocusInHand:
 			if setup:
 				Setup()
-			if t <= 1:
-				position = startpos.lerp(targetpos, t)
-				rotation_degrees = startrot * (1-t) + 0*t
-				scale = startscale  * (1-t) + Orig_scale*2*t
-				t += delta/float(ZOOMINTIME)
-				if ReorganizeNeighbors:
-					ReorganizeNeighbors = false
-					NumberCardsHand = $"../../".NumberCardsHand - 1
-					if CardNum - 1 >= 0:
-						Move_Neighbor_Card(CardNum-1,true,1) # True is left
-					if CardNum - 2 >= 0:
-						Move_Neighbor_Card(CardNum-2,true,0.25) # True is left
-					if CardNum + 1 <= NumberCardsHand:
-						Move_Neighbor_Card(CardNum+1,false,1) # True is left
-					if CardNum + 2 <= NumberCardsHand:
-						Move_Neighbor_Card(CardNum+2,false,0.25) # True is left
+			if t <= 1:				
+				position = startpos.lerp(get_global_mouse_position() - $"../../".CardSize, t)
+				rotation_degrees = startrot * (1-t) + targetrot*t
+				scale = startscale * (1-t) + Orig_scale*t
+				t += delta/float(INMOUSETIME)
 			else:
-				position = targetpos
+				position = get_global_mouse_position() - $"../../".CardSize
 				rotation_degrees = 0
-				scale = Orig_scale*2
+		FocusInHand:
+			if ZoomingIn:
+				if setup:
+					Setup()
+				if t <= 1:
+					position = startpos.lerp(targetpos, t)
+					rotation_degrees = startrot * (1-t) + 0*t
+					scale = startscale  * (1-t) + Orig_scale*2*t
+					t += delta/float(ZOOMINTIME)
+					if ReorganizeNeighbors:
+						ReorganizeNeighbors = false
+						NumberCardsHand = $"../../".NumberCardsHand - 1
+						if CardNum - 1 >= 0:
+							Move_Neighbor_Card(CardNum-1,true,1) # True is left
+						if CardNum - 2 >= 0:
+							Move_Neighbor_Card(CardNum-2,true,0.25) # True is left
+						if CardNum + 1 <= NumberCardsHand:
+							Move_Neighbor_Card(CardNum+1,false,1) # True is left
+						if CardNum + 2 <= NumberCardsHand:
+							Move_Neighbor_Card(CardNum+2,false,0.25) # True is left
+				else:
+					position = targetpos
+					rotation_degrees = 0
+					scale = Orig_scale*ZoomInSize
+					ZoomingIn = false
 		MoveDrawnCardToHand: # Animate from deck to hand
 			if setup:
 				Setup()
@@ -98,7 +183,6 @@ func _physics_process(delta):
 				position = targetpos
 				rotation_degrees = targetrot
 				state = InHand
-				t = 0
 		ReOrganizeHand:
 			if setup:
 				Setup()
@@ -124,6 +208,19 @@ func _physics_process(delta):
 				rotation_degrees = targetrot
 				scale = Orig_scale
 				state = InHand
+		MoveDrawnCardToDiscard:
+			if MovingToDiscard:
+				if setup:
+					Setup()
+					targetpos = DiscardPile
+				if t <= 1:				
+					position = startpos.lerp(targetpos, t)
+					scale = startscale  * (1-t) + Orig_scale*t
+					t += delta/float(DRAWTIME)
+				else:
+					position = targetpos
+					scale = Orig_scale
+					MovingToDiscard = false
 
 func Move_Neighbor_Card(Card_Num, Left, SpreadFactor):
 	NeighborCard = $"../".get_child(Card_Num)
@@ -136,7 +233,6 @@ func Move_Neighbor_Card(Card_Num, Left, SpreadFactor):
 	NeighborCard.Move_Neighbor_Card_Check = true
 
 func Reset_Card(Card_Num):
-	NeighborCard = $"../".get_child(Card_Num)
 	if NeighborCard.Move_Neighbor_Card_Check == false:
 		NeighborCard = $"../".get_child(Card_Num)
 		if NeighborCard.state != FocusInHand:
@@ -157,6 +253,7 @@ func _on_focus_mouse_entered():
 			setup = true
 			targetpos = Cardpos
 			targetpos.y = get_viewport().size.y - $"../../".CardSize.y * ZoomInSize
+			ZoomingIn = true
 			state = FocusInHand
 
 func _on_focus_mouse_exited():

@@ -1,13 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://b083cwnnbfl2t"]
+[gd_scene load_steps=7 format=3 uid="uid://b083cwnnbfl2t"]
 
 [ext_resource type="Script" path="res://play_space.gd" id="1_2aqhq"]
+[ext_resource type="PackedScene" uid="uid://bykosfclelsni" path="res://enemy.tscn" id="2_psmhq"]
 [ext_resource type="Texture2D" uid="uid://btpdtbngaf7e2" path="res://Assets/Cards/cardBack.png" id="2_y3bl3"]
 [ext_resource type="Texture2D" uid="uid://cru47s86mmmr2" path="res://Assets/Cards/red_pressed.png" id="3_d7fco"]
 [ext_resource type="Script" path="res://DeckDraw.gd" id="4_4dyin"]
+[ext_resource type="Script" path="res://DiscardPile.gd" id="6_t7g0a"]
 
 [node name="PlaySpace" type="Node2D"]
 position = Vector2(0, 1)
 script = ExtResource("1_2aqhq")
+
+[node name="CardSlots" type="Node" parent="."]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("2_psmhq")]
+
+[node name="CardsInPlay" type="Node" parent="."]
 
 [node name="Cards" type="Node" parent="."]
 
@@ -24,3 +34,12 @@ texture_hover = ExtResource("2_y3bl3")
 texture_disabled = ExtResource("3_d7fco")
 script = ExtResource("4_4dyin")
 metadata/_edit_group_ = true
+
+[node name="Discard" type="Node2D" parent="."]
+position = Vector2(888, 300)
+
+[node name="DiscardPile" type="TextureButton" parent="Discard"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_d7fco")
+script = ExtResource("6_t7g0a")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://766f5dr8nwf1"]
+
+[ext_resource type="Script" path="res://Cards/CardSlot.gd" id="1_57kyt"]
+[ext_resource type="Texture2D" uid="uid://1yyr4e2kre8e" path="res://Assets/Cards/grey.png" id="2_ryjtj"]
+
+[node name="CardSlot" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_57kyt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ryjtj")
+centered = false

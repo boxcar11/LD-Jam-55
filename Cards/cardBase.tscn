@@ -11,7 +11,6 @@ font_color = Color(0, 0, 0, 1)
 [node name="CardBase" type="MarginContainer"]
 offset_right = 300.0
 offset_bottom = 400.0
-pivot_offset = Vector2(125, 175)
 script = ExtResource("1_vpfke")
 
 [node name="Border" type="TextureRect" parent="."]

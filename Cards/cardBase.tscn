@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://del1cfij81xhc"]
+
+[ext_resource type="Script" path="res://Cards/cardBase.gd" id="1_vpfke"]
+[ext_resource type="Texture2D" uid="uid://1yyr4e2kre8e" path="res://Assets/Cards/grey.png" id="2_kycqf"]
+
+[node name="CardBase" type="MarginContainer"]
+offset_right = 250.0
+offset_bottom = 350.0
+pivot_offset = Vector2(125, 175)
+script = ExtResource("1_vpfke")
+
+[node name="Border" type="Sprite2D" parent="."]
+texture = ExtResource("2_kycqf")
+centered = false
+
+[node name="Card" type="Sprite2D" parent="."]
+centered = false

@@ -17,6 +17,7 @@ func new_game():
 	$Player.velocity = Vector2(0, 0)
 	$Camera2D.position = CAM_START_POS
 	$Ground.position = Vector2i(0,0)
+	
 
 func _process(_delta):
 	speed = StartSpeed
@@ -28,3 +29,5 @@ func _process(_delta):
 	# Update ground position
 	if $Camera2D.position.x - $Ground.position.x > screen_size.x * 1.5:
 		$Ground.position.x += screen_size.x
+	
+	

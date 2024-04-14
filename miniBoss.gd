@@ -1,9 +1,11 @@
-extends MarginContainer
+extends enemy
 
-class_name enemy
+class_name miniBoss
 
-var currentHealth = 10
-var maxHealth = 10
+
+# Called when the node enters the scene tree for the first time.
+func setName() -> void:
+	pass # Replace with function body.
 
 func _ready():
 	$VBoxContainer/ImageContainer/Image.scale *= $VBoxContainer/ImageContainer.custom_minimum_size/$VBoxContainer/ImageContainer/Image.texture.get_size()
@@ -16,4 +18,4 @@ func ChangeHealth(Number):
 	$VBoxContainer/Bar/Count/Background/Number.text = str(currentHealth)
 
 func onDeath():
-	# Has the chance to drop the player money or item
+	# Randomly gives player one new card

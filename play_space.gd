@@ -94,6 +94,8 @@ func _ready():
 	# NewSlot.size = CardSize
 	# $CardSlots.add_child(NewSlot)
 	# cardSlotEmpty.append(true)
+	while(NumberCardsHand < 2):
+		drawCard()
 
 func drawCard():
 	angle = PI/2 + CardSpread*(float(NumberCardsHand)/2 - NumberCardsHand)

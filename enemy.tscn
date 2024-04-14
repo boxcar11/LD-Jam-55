@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bykosfclelsni"]
+[gd_scene load_steps=4 format=3 uid="uid://b6a67fa21eh8"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_iifnu"]
 [ext_resource type="Texture2D" uid="uid://32sw2qnx7rt0" path="res://Assets/Cards/Units/flamingSkull.png" id="1_tgp7d"]
-[ext_resource type="PackedScene" uid="uid://bxxiwrtjghjp7" path="res://Bar.tscn" id="2_16ksw"]
+[ext_resource type="PackedScene" path="res://Bar.tscn" id="2_16ksw"]
 
 [node name="Enemy" type="MarginContainer"]
 offset_right = 40.0

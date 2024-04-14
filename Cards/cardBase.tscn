@@ -171,6 +171,7 @@ layout_mode = 2
 stretch_mode = 0
 
 [node name="CardBack" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("4_18td3")
 centered = false
 

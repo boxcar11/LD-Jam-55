@@ -89,3 +89,40 @@ texture = ExtResource("6_y6iik")
 custom_minimum_size = Vector2(128, 174)
 layout_mode = 2
 texture = ExtResource("6_y6iik")
+
+[node name="EnemyArea" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.046
+offset_left = 662.0
+offset_top = 33.0
+offset_right = 1153.0
+offset_bottom = 574.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EnemyArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="mobLane1" type="BoxContainer" parent="EnemyArea/VBoxContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+
+[node name="mobLane2" type="BoxContainer" parent="EnemyArea/VBoxContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+
+[node name="BossLane" type="BoxContainer" parent="EnemyArea/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+
+[node name="mobLane3" type="BoxContainer" parent="EnemyArea/VBoxContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+
+[node name="MobLane4" type="BoxContainer" parent="EnemyArea/VBoxContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2

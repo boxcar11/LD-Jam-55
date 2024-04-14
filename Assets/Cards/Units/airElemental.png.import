@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2ixyixhalydh"
-path="res://.godot/imported/air elemental.png-268a694bb85f4cdb29c411d86b9058de.ctex"
+path="res://.godot/imported/airElemental.png-c9f19ae8fff23ba9ec7c2a5c7fa1f472.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/Units/air elemental.png"
-dest_files=["res://.godot/imported/air elemental.png-268a694bb85f4cdb29c411d86b9058de.ctex"]
+source_file="res://Assets/Cards/Units/airElemental.png"
+dest_files=["res://.godot/imported/airElemental.png-c9f19ae8fff23ba9ec7c2a5c7fa1f472.ctex"]
 
 [params]
 

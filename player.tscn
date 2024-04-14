@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf5pob7d68fhc"]
+[gd_scene load_steps=4 format=3 uid="uid://dewvkj2s8hu8c"]
 
 [ext_resource type="Texture2D" uid="uid://cllrxl213tt4m" path="res://Assets/Cards/Units/earthElement.png" id="1_i2hi6"]
 [ext_resource type="Script" path="res://player.gd" id="1_k07o3"]

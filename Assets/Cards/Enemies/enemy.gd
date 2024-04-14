@@ -6,6 +6,7 @@ var currentHealth = 10
 var maxHealth = 10
 var maxMoveDistance = 100
 var lane = -1
+var speed : int = 1
 
 func _ready():
 	$VBoxContainer/ImageContainer/Image.scale *= $VBoxContainer/ImageContainer.custom_minimum_size/$VBoxContainer/ImageContainer/Image.texture.get_size()

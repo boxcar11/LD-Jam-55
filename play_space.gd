@@ -67,7 +67,7 @@ func _ready():
 	slots.append(Slot3)
 	slots.append(Slot4)
 	
-	print(Slot0.mouseInSide)
+	# print(Slot0.mouseInSide)
 
 	Slot0.mouseIn.connect(_Slot0_mouseIn)
 	Slot1.mouseIn.connect(_Slot1_mouseIn)

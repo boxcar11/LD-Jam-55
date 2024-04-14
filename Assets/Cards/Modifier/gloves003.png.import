@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://36ve5dlofitp"
-path="res://.godot/imported/boots.png-297b12860bcb6b347c077698d83ff3bc.ctex"
+uid="uid://b3f30q0dg0bn8"
+path="res://.godot/imported/gloves003.png-2a53d2ab9b2e4e0184f99f82237cec25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/Units/boots.png"
-dest_files=["res://.godot/imported/boots.png-297b12860bcb6b347c077698d83ff3bc.ctex"]
+source_file="res://Assets/Cards/Modifier/gloves003.png"
+dest_files=["res://.godot/imported/gloves003.png-2a53d2ab9b2e4e0184f99f82237cec25.ctex"]
 
 [params]
 

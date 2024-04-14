@@ -2,6 +2,13 @@ extends MarginContainer
 
 @export var mouseInSide = false
 var Card
+var Attack :int = 0
+var Armor : int = 0
+var Health : int  = 0
+var Speed : int = 0
+var AttackType
+var ImmuneToRange = false
+var ImmuneToMelee = false
 
 signal mouseIn
 

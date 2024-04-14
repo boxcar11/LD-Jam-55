@@ -33,8 +33,6 @@ func _ready():
 	new_game()
 	setEnemyLocations()
 
-	print(Mob3)
-
 func new_game():
 	$Player.position = PLAYER_START_POS
 	$Player.velocity = Vector2(0, 0)
@@ -51,7 +49,7 @@ func setEnemyLocations():
 	for i in mobCountWidth:
 		mobCount.append([])
 
-func _process(delta):
+func _process(_delta):
 	speed = StartSpeed
 
 	# Move player and camera

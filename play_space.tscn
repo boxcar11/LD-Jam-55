@@ -91,6 +91,7 @@ layout_mode = 2
 texture = ExtResource("6_y6iik")
 
 [node name="EnemyArea" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchor_right = 0.046
 offset_left = 662.0

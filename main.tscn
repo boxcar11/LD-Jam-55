@@ -1,20 +1,68 @@
-[gd_scene load_steps=5 format=3 uid="uid://buvaqssb7snty"]
+[gd_scene load_steps=10 format=3 uid="uid://buvaqssb7snty"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2vjfy"]
 [ext_resource type="PackedScene" uid="uid://cay8bp2qonmlm" path="res://bg.tscn" id="1_jcux6"]
 [ext_resource type="PackedScene" uid="uid://b3budqq7kebn8" path="res://ground.tscn" id="2_gg886"]
 [ext_resource type="PackedScene" uid="uid://cf5pob7d68fhc" path="res://player.tscn" id="3_ujxm8"]
+[ext_resource type="PackedScene" uid="uid://b083cwnnbfl2t" path="res://play_space.tscn" id="5_m26xn"]
+[ext_resource type="Texture2D" uid="uid://cj7tqe12w3kuv" path="res://Assets/Cards/UI/healthBar.png" id="6_vbstx"]
+[ext_resource type="Texture2D" uid="uid://bmfdvdggfg0g" path="res://Assets/Cards/UI/healthFill.png" id="7_b6fya"]
+[ext_resource type="Script" path="res://Health.gd" id="8_11i0u"]
+[ext_resource type="Script" path="res://Fight.gd" id="9_lv0sq"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("subView")]
 script = ExtResource("1_2vjfy")
-StartSpeed = 2.0
+subView = NodePath("Camera2D/SubViewportContainer/SubViewport")
+
+[node name="Fight" type="Node" parent="."]
+script = ExtResource("9_lv0sq")
 
 [node name="Bg" parent="." instance=ExtResource("1_jcux6")]
 
 [node name="Ground" parent="." instance=ExtResource("2_gg886")]
 
 [node name="Player" parent="." instance=ExtResource("3_ujxm8")]
-position = Vector2(19, 535)
+visible = false
+position = Vector2(288, 536)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera2D"]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Camera2D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="PlaySpace" parent="Camera2D/SubViewportContainer/SubViewport" instance=ExtResource("5_m26xn")]
+position = Vector2(0, 0)
+
+[node name="Health" type="TextureProgressBar" parent="Camera2D/SubViewportContainer/SubViewport"]
+offset_right = 120.0
+offset_bottom = 40.0
+value = 50.0
+texture_under = ExtResource("6_vbstx")
+texture_progress = ExtResource("7_b6fya")
+script = ExtResource("8_11i0u")
+
+[node name="WaveTimer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[node name="CoolDownTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="RoundTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_EnemyStart_timeout"]
+[connection signal="timeout" from="CoolDownTimer" to="." method="_on_WaveCoolDown_timeout"]
+[connection signal="timeout" from="RoundTimer" to="Fight" method="_on_Round_timeout"]

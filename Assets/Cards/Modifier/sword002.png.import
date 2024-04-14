@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dofq6nj7qj6ku"
-path="res://.godot/imported/gloves002.png-fc6f7ab0188cfdb7339d88886b08d3fd.ctex"
+uid="uid://c0gvfpdp0oqg7"
+path="res://.godot/imported/sword002.png-4a202e13a8b85b1d560a822fdcca2416.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/UI/gloves002.png"
-dest_files=["res://.godot/imported/gloves002.png-fc6f7ab0188cfdb7339d88886b08d3fd.ctex"]
+source_file="res://Assets/Cards/Modifier/sword002.png"
+dest_files=["res://.godot/imported/sword002.png-4a202e13a8b85b1d560a822fdcca2416.ctex"]
 
 [params]
 

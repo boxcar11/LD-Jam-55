@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://q81wd48h50xy"]
+
+[ext_resource type="Texture2D" uid="uid://1yyr4e2kre8e" path="res://Assets/Cards/grey.png" id="1_dv1n4"]
+[ext_resource type="Script" path="res://slot.gd" id="1_ph5wx"]
+
+[node name="Slot4" type="MarginContainer"]
+custom_minimum_size = Vector2(128, 174)
+script = ExtResource("1_ph5wx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.6, 3.6)
+texture = ExtResource("1_dv1n4")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(48, 64)
+centered = false
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

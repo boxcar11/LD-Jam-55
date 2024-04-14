@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3rmrkboi6dp3"
-path="res://.godot/imported/armor.png-888ffe874ebb79571f84c382fcc256ff.ctex"
+path="res://.godot/imported/armor.png-f938365a4f88896c0f369d161aaa29d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/UI/armor.png"
-dest_files=["res://.godot/imported/armor.png-888ffe874ebb79571f84c382fcc256ff.ctex"]
+source_file="res://Assets/Cards/Modifier/armor.png"
+dest_files=["res://.godot/imported/armor.png-f938365a4f88896c0f369d161aaa29d9.ctex"]
 
 [params]
 

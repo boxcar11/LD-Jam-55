@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Cards/cardBase.gd" id="1_vpfke"]
 [ext_resource type="Texture2D" uid="uid://c780f8m7x8rsi" path="res://Assets/Cards/cardFace.png" id="2_kc27l"]
-[ext_resource type="Texture2D" uid="uid://etdwkftius47" path="res://Assets/Cards/yellow.png" id="3_ny2xh"]
+[ext_resource type="Texture2D" uid="uid://dqa6oog0mb25c" path="res://Assets/Cards/UI/button.png" id="3_5lqvf"]
 [ext_resource type="Texture2D" uid="uid://btpdtbngaf7e2" path="res://Assets/Cards/cardBack.png" id="4_18td3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j1mqu"]
@@ -40,7 +40,7 @@ layout_mode = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Bars/TopBar/Name"]
 layout_mode = 2
-texture = ExtResource("3_ny2xh")
+texture = ExtResource("3_5lqvf")
 
 [node name="CenterContainer" type="CenterContainer" parent="Bars/TopBar/Name"]
 layout_mode = 2
@@ -60,7 +60,7 @@ size_flags_horizontal = 8
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Bars/TopBar/Cost"]
 layout_mode = 2
-texture = ExtResource("3_ny2xh")
+texture = ExtResource("3_5lqvf")
 
 [node name="CenterContainer" type="CenterContainer" parent="Bars/TopBar/Cost"]
 layout_mode = 2

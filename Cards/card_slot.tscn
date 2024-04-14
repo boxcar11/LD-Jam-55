@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://766f5dr8nwf1"]
 
 [ext_resource type="Script" path="res://Cards/CardSlot.gd" id="1_57kyt"]
-[ext_resource type="Texture2D" uid="uid://1yyr4e2kre8e" path="res://Assets/Cards/grey.png" id="2_ryjtj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ksrji"]
+load_path = "res://.godot/imported/grey.png-746e0fb23f56e8575054c275f13eeaa7.ctex"
 
 [node name="CardSlot" type="MarginContainer"]
 offset_right = 40.0
@@ -9,5 +11,5 @@ offset_bottom = 40.0
 script = ExtResource("1_57kyt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ryjtj")
+texture = SubResource("CompressedTexture2D_ksrji")
 centered = false

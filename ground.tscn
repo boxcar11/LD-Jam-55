@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3budqq7kebn8"]
 
-[ext_resource type="Texture2D" uid="uid://etdwkftius47" path="res://Assets/Cards/yellow.png" id="1_1x2ko"]
+[ext_resource type="Texture2D" uid="uid://dqa6oog0mb25c" path="res://Assets/Cards/UI/button.png" id="1_ckvp8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_faub0"]
 size = Vector2(2304, 48)
@@ -10,7 +10,7 @@ size = Vector2(2304, 48)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 600)
 scale = Vector2(48, 1)
-texture = ExtResource("1_1x2ko")
+texture = ExtResource("1_ckvp8")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

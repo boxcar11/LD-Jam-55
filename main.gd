@@ -1,5 +1,8 @@
 extends Node
 
+const EnemyList = preload("res://Cards/EnemyList.gd")
+@onready var DeckSize = EnemyList.enemyList.size()
+
 @export var waveMaxSize := 5
 @export var minWaveTime := 5
 @export var maxWaveTime := 15
@@ -64,12 +67,18 @@ func _process(_delta):
 
 	for j in mobCount.size():
 		for k in mobCount[j].size():
-			var enemyChild = mobCount[j][k]
-			enemyChild.maxMoveDistance = 100 + k*50
-			if enemyChild.position.x < enemyChild.maxMoveDistance:
-				pass
-			else:
-				enemyChild.position.x -= speed
+			#print("J:" + str(j)+ " K:" + str(k))
+			if mobCount[j][k] != null:
+				var enemyChild = mobCount[j][k]
+				if enemyChild.Health <= 0:
+					mobCount[j].remove_at(0)
+					enemyChild.queue_free()
+					break
+				enemyChild.maxMoveDistance = 100 + k*50
+				if enemyChild.position.x < enemyChild.maxMoveDistance:
+					pass
+				else:
+					enemyChild.position.x -= speed
 
 func _input(event):
 	if event.is_action_pressed("leftclick"): # Pick up card	
@@ -79,6 +88,8 @@ func _StartEnemy():
 	print("Create Enemy")
 	var newEnemy = Enemy.instantiate()
 	var i = randi() % enemyLocations.size()
+	var enemySelected = randi() % DeckSize
+	newEnemy.enemyName = EnemyList.enemyList[enemySelected]
 	EnemyArea.add_child(newEnemy)
 	mobCount[i].append(newEnemy)
 	newEnemy.lane = i

@@ -28,7 +28,7 @@ const DATA = {
 	earthElement :
 		["Units",0,0,0,0, 0,"Earth Elemental","Melee"," Natural Armor +1 Armor"],
 	flamingSkull :
-		["Enemy",0,0,0,0, 0,"Flaming Skull", "Ranged", ""],
+		["Enemies",0,0,0,0, 0,"Flaming Skull", "Ranged", ""],
 	potion001 :
 		["Modifier",0,0,0,0, 0,"Healing Potion", "","Heals for 10% of max health"],
 	shield001 :
@@ -50,17 +50,17 @@ const DATA = {
 	zombie :
 		["Units",0,0,0,0,0,"Zombie","Melee",""],
 	archer :
-		["Enemy",0,0,0,0,0,"Archer","Ranged",""],
+		["Enemies",1,1,10,1,0,"Archer","Ranged",""],
 	beholder :
-		["Enemy",0,0,0,0,0,"Beholder","Ranged",""],
+		["Enemies",0,0,0,0,0,"Beholder","Ranged",""],
 	cultist :
-		["Enemy",0,0,0,0,0,"Culitst","Ranged",""],
+		["Enemies",0,0,0,0,0,"Culitst","Ranged",""],
 	executioner :
-		["Enemy",0,0,0,0,0,"Executioner","Melee",""],
+		["Enemies",0,0,0,0,0,"Executioner","Melee",""],
 	guard :
-		["Enemy",0,0,0,0,0,"guard","Melee",""],
+		["Enemies",0,0,0,0,0,"guard","Melee",""],
 	guardDog :
-		["Enemy",0,0,0,0,0,"Guard Dog","Melee",""],
+		["Enemies",2,1,10,1,0,"Guard Dog","Melee",""],
 	wizard :
-		["Enemy",0,0,0,0,0,"Wizard","Ranged",""],
+		["Enemies",1,1,10,1,0,"Wizard","Ranged",""],
 }

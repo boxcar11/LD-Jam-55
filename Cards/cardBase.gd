@@ -94,7 +94,10 @@ func _input(event):
 						if mouseIsIn[i]: 
 							if curSlot != null:
 								CardSlots[curSlot].Card = null
-								CardSlots[curSlot].get_child(1,false).texture = null
+								CardSlots[curSlot].get_child(1).texture = null
+								CardSlots[curSlot].get_child(2).visible = false
+								#CarsSlots[curSlot].get_child(1)
+								CardSlots[curSlot].canFight = false
 								cardSlotEmpty[curSlot] = true
 							cardSlotEmpty[i] = false
 							setup = true
@@ -103,20 +106,24 @@ func _input(event):
 							targetpos = Vector2(100,100)
 							curSlot = i
 							CardSlots[i].Card = self
-							CardSlots[i].get_child(1,false).texture = load(CardImg)
+							CardSlots[i].get_child(1).texture = load(CardImg)
+							CardSlots[curSlot].get_child(2).visible = true
 							CardSlots[i].Attack = CardInfo[1]
-							CardSlots[i].Armor = str(CardInfo[2])
-							CardSlots[i].Health = str(CardInfo[3])
-							CardSlots[i].Speed = str(CardInfo[4])
+							CardSlots[i].Armor = CardInfo[2]
+							CardSlots[i].Health = CardInfo[3]
+							CardSlots[i].maxHealth = CardInfo[3]
+							CardSlots[i].UpdateHealthBar()
+							CardSlots[i].Speed = CardInfo[4]
 							CardSlots[i].AttackType = CardInfo[7]
+							CardSlots[i].canFight = true
 							if CardInfo[5] == 6:
-								CardSlots[i].ImmuneToRange = true
+								CardSlots[i].Immune = 1
 							else:
-								CardSlots[i].ImmuneToRange = false
+								CardSlots[i].Immune = 0
 							if CardInfo[5] == 7:
-								CardSlots[i].ImmuneToRange = true
+								CardSlots[i].Immune = 2
 							else:
-								CardSlots[i].ImmuneToRange = false
+								CardSlots[i].Immune = 0
 							targetscale = CardSlotSize/size
 							state = InPlay
 							CARD_SELECT = true

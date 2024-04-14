@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://buvaqssb7snty"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_2vjfy"]
+[ext_resource type="PackedScene" uid="uid://cay8bp2qonmlm" path="res://bg.tscn" id="1_jcux6"]
+[ext_resource type="PackedScene" uid="uid://b3budqq7kebn8" path="res://ground.tscn" id="2_gg886"]
+[ext_resource type="PackedScene" uid="uid://cf5pob7d68fhc" path="res://player.tscn" id="3_ujxm8"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_2vjfy")
+StartSpeed = 2.0
+
+[node name="Bg" parent="." instance=ExtResource("1_jcux6")]
+
+[node name="Ground" parent="." instance=ExtResource("2_gg886")]
+
+[node name="Player" parent="." instance=ExtResource("3_ujxm8")]
+position = Vector2(19, 535)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)

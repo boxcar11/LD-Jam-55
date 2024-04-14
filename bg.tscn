@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cay8bp2qonmlm"]
+
+[ext_resource type="Texture2D" uid="uid://bw58iqkspl857" path="res://Assets/Cards/red.png" id="1_eaq7d"]
+[ext_resource type="Texture2D" uid="uid://dcapvwypj3yeq" path="res://Assets/Cards/Units/background2.png" id="2_1aafj"]
+
+[node name="Bg" type="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_eaq7d")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+scale = Vector2(2.25, 2.5)
+texture = ExtResource("2_1aafj")
+centered = false

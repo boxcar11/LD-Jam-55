@@ -37,11 +37,14 @@ var oldpos = Vector2()
 var oldscale = Vector2()
 var Reparent = true
 
-@onready var CardSlots = $"../../CardSlots"
+@onready var CardSlots = $"../../".slots
 @onready var cardSlotEmpty = $'../../'.cardSlotEmpty
 var CardSlotPos = Vector2()
 var CardSlotSize = Vector2()
 var mousepos = Vector2()
+var curSlot
+
+@onready var mouseIsIn = $"../../".mouseIsIn
 
 enum{
 	InHand,
@@ -72,7 +75,7 @@ func _ready():
 	$Bars/BottomBar/Attack/CenterContainer/AandR.text = str(Attack,"/",Retaliation)
 
 func _input(event):
-	if event.is_action_pressed("leftclick"): # Pick up card
+	if event.is_action_pressed("leftclick"): # Pick up card	
 		if state == FocusInHand:
 			if CARD_SELECT:
 				# oldstate = state
@@ -81,17 +84,22 @@ func _input(event):
 				CARD_SELECT = false
 	if event.is_action_released("leftclick"):
 		if CARD_SELECT == false:
-			if oldstate == InHand || oldstate == ReOrganizeHand: #Putting a card in to slot
-				for i in range(CardSlots.get_child_count()):
+			if oldstate == InHand || oldstate == ReOrganizeHand || CardSlots[curSlot]: #Putting a card in to slot
+				for i in range(CardSlots.size()):
 					if cardSlotEmpty[i]:
-						CardSlotPos = CardSlots.get_child(i).position
-						CardSlotSize = CardSlots.get_child(i).size*CardSlots.get_child(i).scale
-						mousepos = get_global_mouse_position()
-						if mousepos.x < CardSlotPos.x + CardSlotSize.x && mousepos.x > CardSlotPos.x && mousepos.y < CardSlotPos.y + CardSlotSize.y && mousepos.y > CardSlotPos.y:
+						if mouseIsIn[i]: 
+							if curSlot != null:
+								CardSlots[curSlot].Card = null
+								CardSlots[curSlot].get_child(1,false).texture = null
+								cardSlotEmpty[curSlot] = true
 							cardSlotEmpty[i] = false
 							setup = true
-							MovingtoPlay = true									
-							targetpos = CardSlotPos
+							MovingtoPlay = true		
+							visible = false						
+							targetpos = Vector2(100,100)
+							curSlot = i
+							CardSlots[i].Card = self
+							CardSlots[i].get_child(1,false).texture = load(CardImg)
 							targetscale = CardSlotSize/size
 							state = InPlay
 							CARD_SELECT = true
@@ -158,6 +166,7 @@ func _physics_process(delta):
 			else:
 				position = get_global_mouse_position() - $"../../".CardSize/2
 				rotation_degrees = 0
+				visible = true
 		FocusInHand:
 			if ZoomingIn:
 				if setup:
@@ -278,7 +287,7 @@ func Setup():
 	t= 0
 	setup = false
 
-func _on_focus_mouse_entered():
+func mouse_entered():
 	match state:
 		InHand, ReOrganizeHand, InPlay:
 			if CardInPlay:
@@ -297,7 +306,7 @@ func _on_focus_mouse_entered():
 				ZoomingIn = true
 				state = FocusInHand
 
-func _on_focus_mouse_exited():
+func mouse_exited():
 	match state:
 		FocusInHand:
 			setup = true
@@ -306,3 +315,9 @@ func _on_focus_mouse_exited():
 				targetpos = oldpos
 			else:
 				targetpos = Cardpos
+
+func _on_focus_mouse_entered():
+	mouse_entered()
+	
+func _on_focus_mouse_exited():
+	mouse_exited()

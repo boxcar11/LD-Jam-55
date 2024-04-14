@@ -18,7 +18,7 @@ func new_game():
 	$Camera2D.position = CAM_START_POS
 	$Ground.position = Vector2i(0,0)
 
-func _process(delta):
+func _process(_delta):
 	speed = StartSpeed
 
 	# Move player and camera

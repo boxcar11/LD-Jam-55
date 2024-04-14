@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bxxiwrtjghjp7"]
 
-[ext_resource type="Texture2D" uid="uid://busky6j0crw5t" path="res://assets/GUI/label_HP_bg.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://lw48whxdjyli" path="res://assets/GUI/label_HP.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://busky6j0crw5t" path="res://Assets/GUI/label_HP_bg.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://lw48whxdjyli" path="res://Assets/GUI/label_HP.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://cj7tqe12w3kuv" path="res://Assets/Cards/UI/healthBar.png" id="3_obqud"]
 [ext_resource type="Texture2D" uid="uid://bmfdvdggfg0g" path="res://Assets/Cards/UI/healthFill.png" id="4_dkcq2"]
 

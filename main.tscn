@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://buvaqssb7snty"]
+[gd_scene load_steps=6 format=3 uid="uid://buvaqssb7snty"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2vjfy"]
 [ext_resource type="PackedScene" uid="uid://cay8bp2qonmlm" path="res://bg.tscn" id="1_jcux6"]
 [ext_resource type="PackedScene" uid="uid://b3budqq7kebn8" path="res://ground.tscn" id="2_gg886"]
 [ext_resource type="PackedScene" uid="uid://cf5pob7d68fhc" path="res://player.tscn" id="3_ujxm8"]
+[ext_resource type="PackedScene" uid="uid://b083cwnnbfl2t" path="res://play_space.tscn" id="5_m26xn"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("subView")]
 script = ExtResource("1_2vjfy")
-StartSpeed = 2.0
+subView = NodePath("Camera2D/SubViewportContainer/SubViewport")
 
 [node name="Bg" parent="." instance=ExtResource("1_jcux6")]
 
@@ -18,3 +19,30 @@ position = Vector2(19, 535)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera2D"]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Camera2D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="PlaySpace" parent="Camera2D/SubViewportContainer/SubViewport" instance=ExtResource("5_m26xn")]
+position = Vector2(0, 0)
+
+[node name="WaveTimer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[node name="CoolDownTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_EnemyStart_timeout"]
+[connection signal="timeout" from="CoolDownTimer" to="." method="_on_WaveCoolDown_timeout"]

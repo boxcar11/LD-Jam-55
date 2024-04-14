@@ -20,6 +20,7 @@ script = ExtResource("1_2aqhq")
 [node name="Cards" type="Node" parent="."]
 
 [node name="Deck" type="Node2D" parent="."]
+visible = false
 position = Vector2(888, 51)
 metadata/_edit_group_ = true
 
@@ -79,7 +80,6 @@ layout_mode = 2
 
 [node name="Slot5" parent="Control/HBoxContainer/VBoxContainer" instance=ExtResource("6_duj8b")]
 layout_mode = 2
-texture = ExtResource("6_y6iik")
 
 [node name="EnemyArea" type="Control" parent="."]
 layout_mode = 3

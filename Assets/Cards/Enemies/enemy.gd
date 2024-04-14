@@ -4,6 +4,8 @@ class_name enemy
 
 var currentHealth = 10
 var maxHealth = 10
+var maxMoveDistance = 100
+var lane = -1
 
 func _ready():
 	$VBoxContainer/ImageContainer/Image.scale *= $VBoxContainer/ImageContainer.custom_minimum_size/$VBoxContainer/ImageContainer/Image.texture.get_size()
@@ -17,3 +19,4 @@ func ChangeHealth(Number):
 
 func onDeath():
 	# Has the chance to drop the player money or item
+	pass

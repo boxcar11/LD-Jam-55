@@ -55,7 +55,7 @@ func _ready():
 		Immune = 0
 
 func ChangeHealth(Number):
-	print("EnemyDamage: " + str(Number))
+	#print("EnemyDamage: " + str(Number))
 	Health -= Number
 	#print("Took: " + str(Number) + " Damage")
 	$VBoxContainer/Bar/TextureProgress.value = Health
@@ -95,6 +95,9 @@ func CheckForImmune(immuneType):
 		return false
 
 func _process(_delta):
+	if Health > maxHealth:
+		Health = maxHealth
+
 	if position.x < 400:
 		if canFight && !fighting:
 			fighting = true

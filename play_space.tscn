@@ -37,6 +37,7 @@ script = ExtResource("4_4dyin")
 metadata/_edit_group_ = true
 
 [node name="Discard" type="Node2D" parent="."]
+visible = false
 position = Vector2(888, 300)
 
 [node name="DiscardPile" type="TextureButton" parent="Discard"]
@@ -50,6 +51,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 440.0
 offset_bottom = 379.0
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
@@ -84,13 +86,13 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="EnemyArea" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchor_right = 0.046
 offset_left = 662.0
 offset_top = 33.0
 offset_right = 1153.0
 offset_bottom = 574.0
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EnemyArea"]
 layout_mode = 1

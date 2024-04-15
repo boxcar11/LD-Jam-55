@@ -12,7 +12,7 @@ var AttackType
 var Immune = 0
 var canFight : bool = false
 
-var maxHealth : float = 20
+var maxHealth : int = 20
 
 var timer := Timer.new()
 var fighting = false
@@ -26,6 +26,8 @@ func _ready():
 	timer.timeout.connect(_on_fight_timeout)
 
 func _process(_delta):
+	if Health > maxHealth:
+		Health = maxHealth
 	if enemyArea.get_child_count() > 1:
 		if enemyArea.get_child(1).position.x < 400:
 			if canFight && !fighting:
@@ -33,12 +35,13 @@ func _process(_delta):
 				Fight()
 
 func Fight():
-	if enemyArea.get_child(1) != null:
-		enemyArea.get_child(1).ChangeHealth(Attack)
+	if enemyArea.get_child_count() > 1:
+		if enemyArea.get_child(1).position.x < 400:
+			enemyArea.get_child(1).ChangeHealth(Attack)
 		timer.start(Speed)
 
 func ChangeHealth(Number):
-	print("Creature Damage: " + str(Number))
+	#print("Creature Damage: " + str(Number))
 	Health -= Number
 	UpdateHealthBar()
 	

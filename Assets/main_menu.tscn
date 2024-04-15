@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://cckyansrctiq0"]
+
+[ext_resource type="Texture2D" uid="uid://dqa6oog0mb25c" path="res://Assets/Cards/UI/button.png" id="1_ghbn6"]
+[ext_resource type="Script" path="res://Assets/main_menu.gd" id="1_lp5qk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxfot"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8r2u"]
+font_size = 22
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lp5qk")
+
+[node name="Container" type="BoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+alignment = 1
+
+[node name="Play Button" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_ghbn6")
+
+[node name="Label" type="Label" parent="Container/VBoxContainer/Play Button"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 128.0
+offset_bottom = 68.0
+text = "PLAY"
+label_settings = SubResource("LabelSettings_mxfot")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Deck Button" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+disabled = true
+icon = ExtResource("1_ghbn6")
+
+[node name="Label" type="Label" parent="Container/VBoxContainer/Deck Button"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 129.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Deck"
+label_settings = SubResource("LabelSettings_a8r2u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit Button" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_ghbn6")
+
+[node name="Label" type="Label" parent="Container/VBoxContainer/Exit Button"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 129.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Exit"
+label_settings = SubResource("LabelSettings_a8r2u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="Container/VBoxContainer/Play Button" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="Container/VBoxContainer/Deck Button" to="." method="_on_deck_button_button_up"]
+[connection signal="button_up" from="Container/VBoxContainer/Exit Button" to="." method="_on_Exit_button_button_up"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://buvaqssb7snty"]
+[gd_scene load_steps=8 format=3 uid="uid://buvaqssb7snty"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2vjfy"]
 [ext_resource type="PackedScene" uid="uid://cay8bp2qonmlm" path="res://bg.tscn" id="1_jcux6"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cf5pob7d68fhc" path="res://player.tscn" id="3_ujxm8"]
 [ext_resource type="PackedScene" uid="uid://b083cwnnbfl2t" path="res://play_space.tscn" id="5_m26xn"]
 [ext_resource type="Script" path="res://Fight.gd" id="9_lv0sq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6c6wc"]
+font_size = 36
 
 [node name="Main" type="Node" node_paths=PackedStringArray("subView")]
 script = ExtResource("1_2vjfy")
@@ -15,6 +18,12 @@ subView = NodePath("Camera2D/SubViewportContainer/SubViewport")
 script = ExtResource("9_lv0sq")
 
 [node name="Bg" parent="." instance=ExtResource("1_jcux6")]
+
+[node name="Label" type="Label" parent="Bg"]
+offset_right = 40.0
+offset_bottom = 50.0
+text = "0"
+label_settings = SubResource("LabelSettings_6c6wc")
 
 [node name="Ground" parent="." instance=ExtResource("2_gg886")]
 

@@ -17,9 +17,11 @@ var mobCount= []
 var mobCountWidth = 4
 
 @onready var EnemyArea = $Camera2D/SubViewportContainer/SubViewport/PlaySpace/EnemyArea
+@onready var playSpace = $Camera2D/SubViewportContainer/SubViewport/PlaySpace
 @onready var timer = $WaveTimer
 
 const Enemy = preload("res://Assets/Cards/Enemies/enemy.tscn")
+const Coin = preload("res://Assets/Coin.tscn")
 
 const PLAYER_START_POS := Vector2(150, 532)
 const CAM_START_POS := Vector2(576, 324)
@@ -28,6 +30,8 @@ const MAX_SPEED : int = 25
 var speed : float
 var screen_size : Vector2i
 var enemyStartCount = 0
+
+var bank : int = 0
 
 @export var subView := SubViewport
 
@@ -55,7 +59,9 @@ func setEnemyLocations():
 func _process(_delta):
 	speed = StartSpeed
 
-	# Move player and camera
+	$Bg/Label.text = str(bank)
+
+	#Move player and camera
 	$Player.position.x += speed
 	$Camera2D.position.x += speed
 
@@ -71,8 +77,9 @@ func _process(_delta):
 			if mobCount[j][k] != null:
 				var enemyChild = mobCount[j][k]
 				if enemyChild.Health <= 0:
+					DropLoot(enemyChild.position)
 					mobCount[j].remove_at(0)
-					enemyChild.queue_free()
+					enemyChild.queue_free()					
 					break
 				enemyChild.maxMoveDistance = 100 + k*50
 				if enemyChild.position.x < enemyChild.maxMoveDistance:
@@ -97,6 +104,17 @@ func _StartEnemy():
 	enemyStartCount -= 1
 	if enemyStartCount == 0:
 		EnemyWaveGenerator()
+
+func DropLoot(pos):
+	var coinDropChance = randi() % 4
+	var CardDropChance = randi() % 10
+
+	if coinDropChance == 2:
+		var coin = Coin.instantiate()
+		$Camera2D/SubViewportContainer/SubViewport/PlaySpace/Control.add_child(coin)
+		coin.position = pos + Vector2(600,0)
+	elif 2 == 2:
+		playSpace.PickCard("potion001")
 	
 
 func EnemyWaveGenerator():

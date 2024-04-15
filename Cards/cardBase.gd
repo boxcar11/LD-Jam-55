@@ -45,6 +45,12 @@ var mousepos = Vector2()
 var curSlot
 var modifer = 0
 
+var oldAttack
+var oldArmor
+var oldHealth
+var oldMaxHealth
+var oldSpeed
+
 @onready var mouseIsIn = $"../../".mouseIsIn
 
 enum{
@@ -75,6 +81,12 @@ func _ready():
 	$Bars/BottomBar/Health/CenterContainer/Health.text = Health
 	$Bars/BottomBar/Attack/CenterContainer/AandR.text = str(Attack,"/",Armor)
 
+	oldAttack = CardInfo[1]
+	oldArmor = CardInfo[2]
+	oldHealth = CardInfo[3]
+	oldMaxHealth= CardInfo[3]
+	oldSpeed= CardInfo[4]
+
 func _input(event):
 	if event.is_action_pressed("leftclick"): # Pick up card	
 		if state == FocusInHand:
@@ -93,12 +105,7 @@ func _input(event):
 					if cardSlotEmpty[i]:
 						if mouseIsIn[i]: 
 							if curSlot != null:
-								CardSlots[curSlot].Card = null
-								CardSlots[curSlot].get_child(1).texture = null
-								CardSlots[curSlot].get_child(2).visible = false
-								#CarsSlots[curSlot].get_child(1)
-								CardSlots[curSlot].canFight = false
-								cardSlotEmpty[curSlot] = true
+								RemoveCard()
 							cardSlotEmpty[i] = false
 							setup = true
 							MovingtoPlay = true		
@@ -108,12 +115,12 @@ func _input(event):
 							CardSlots[i].Card = self
 							CardSlots[i].get_child(1).texture = load(CardImg)
 							CardSlots[curSlot].get_child(2).visible = true
-							CardSlots[i].Attack = CardInfo[1]
-							CardSlots[i].Armor = CardInfo[2]
-							CardSlots[i].Health = CardInfo[3]
-							CardSlots[i].maxHealth = CardInfo[3]
+							CardSlots[i].Attack = oldAttack
+							CardSlots[i].Armor = oldArmor
+							CardSlots[i].Health = oldHealth
+							CardSlots[i].maxHealth = oldMaxHealth
 							CardSlots[i].UpdateHealthBar()
-							CardSlots[i].Speed = CardInfo[4]
+							CardSlots[i].Speed = oldSpeed
 							CardSlots[i].AttackType = CardInfo[7]
 							CardSlots[i].canFight = true
 							if CardInfo[5] == 6:
@@ -184,6 +191,19 @@ func _input(event):
 						targetpos = oldpos
 
 func _physics_process(delta):
+	#Look for dead creatures
+	for i in range(CardSlots.size()):
+		if CardSlots[i].Health <= 0 && !cardSlotEmpty[i]:
+			RemoveCard()
+			queue_free()
+
+	#Look for no more creatures
+	for i in range(CardSlots.size()):
+		if !cardSlotEmpty[i]:
+			break
+		else:
+			pass
+		
 	match state:
 		InHand:
 			pass
@@ -336,6 +356,19 @@ func Setup():
 	startscale = scale
 	t= 0
 	setup = false
+
+func RemoveCard():
+	CardSlots[curSlot].Card = null
+	oldAttack = CardSlots[curSlot].Attack
+	oldArmor = CardSlots[curSlot].Armor
+	oldHealth = CardSlots[curSlot].Health
+	oldMaxHealth= CardSlots[curSlot].maxHealth
+	oldSpeed= CardSlots[curSlot].Speed
+	CardSlots[curSlot].get_child(1).texture = null
+	CardSlots[curSlot].get_child(2).visible = false
+	#CarsSlots[curSlot].get_child(1)
+	CardSlots[curSlot].canFight = false
+	cardSlotEmpty[curSlot] = true
 
 func mouse_entered():
 	match state:

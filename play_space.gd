@@ -115,6 +115,20 @@ func drawCard():
 	OrganizeHand()
 	return DeckSize
 
+func PickCard(card):
+	angle = PI/2 + CardSpread*(float(NumberCardsHand)/2 - NumberCardsHand)
+	var new_card = CardBase.instantiate()
+	new_card.Cardname = card
+	new_card.position = DeckPosition
+	new_card.DiscardPile = DiscardPosition
+	new_card.scale = CardSize/new_card.size
+	new_card.state = MoveDrawnCardToHand
+	CardNum = 0
+	$Cards.add_child(new_card)
+	angle += 0.25
+	NumberCardsHand += 1
+	OrganizeHand()
+
 func ReParentCard(CardNo):
 	NumberCardsHand -= 1
 	CardNum = 0

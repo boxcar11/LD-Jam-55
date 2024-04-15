@@ -16,7 +16,7 @@ const DATA = {
 	book001 : 
 		["Units", 2 ,2, 3, 2, 0, "Book", "Ranged","Inmmune to\nRetaliation"],
 	frog :
-		["Units", 2, 2, 3, 3, 0, "Frog", "Melee", ""],
+		["Units", 2, 2, 20, 3, 0, "Frog", "Melee", ""],
 	imp :
 		["Units", 4, 0, 2, 3, 0, "Imp", "Melee","Immune to\nRetaliation"],
 	airElemental :
@@ -30,7 +30,7 @@ const DATA = {
 	flamingSkull :
 		["Enemies",0,0,0,0, 0,"Flaming Skull", "Ranged", ""],
 	potion001 :
-		["Modifier",0,0,0,0, 0,"Healing Potion", "","Heals for 10% of max health"],
+		["Modifier",0,0,50,0, 4,"Healing Potion", "","Heals for 3 health"],
 	shield001 :
 		["Modifier",0,1,0,0, 0,"Wooden Buckler","","Reduce damage by 1"],
 	shield002 :

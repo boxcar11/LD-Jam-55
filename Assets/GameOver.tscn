@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvicgkwchcdhg"]
+
+[ext_resource type="Script" path="res://Assets/GameOver.gd" id="1_hjlan"]
+[ext_resource type="Texture2D" uid="uid://dqa6oog0mb25c" path="res://Assets/Cards/UI/button.png" id="1_qrha3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fx1ed"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_ebjtw"]
+font_size = 22
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hjlan")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.270588, 0.160784, 0.0352941, 1)
+
+[node name="Container" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+alignment = 1
+
+[node name="Retry Button" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_qrha3")
+
+[node name="Label" type="Label" parent="Container/VBoxContainer/Retry Button"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 128.0
+offset_bottom = 68.0
+text = "RETRY"
+label_settings = SubResource("LabelSettings_fx1ed")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main Menu Button" type="Button" parent="Container/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_qrha3")
+
+[node name="Label" type="Label" parent="Container/VBoxContainer/Main Menu Button"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 129.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_ebjtw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="Container/VBoxContainer/Retry Button" to="." method="_on_retry_button_button_up"]
+[connection signal="button_up" from="Container/VBoxContainer/Main Menu Button" to="." method="_on_main_menu_button_button_up"]

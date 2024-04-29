@@ -2,9 +2,10 @@ extends Node2D
 
 const CardSize = Vector2(150,200)*0.6
 const CardBase = preload("res://Cards/cardBase.tscn")
-const PlayerHand = preload("res://Cards/PlayerHand.gd")
+
 const CardSlot = preload("res://Cards/card_slot.tscn")
 var CardSelected = []
+@onready var playerHand = []
 @onready var DeckSize = PlayerHand.CardList.size()
 @onready var main = $"/root"/Main
 
@@ -64,6 +65,9 @@ enum{
 }
 
 func _ready():
+	for i in DeckSize:
+		playerHand.append(PlayerHand.CardList[i])
+
 	slots.append(Slot0)
 	slots.append(Slot1)
 	slots.append(Slot2)
@@ -97,6 +101,7 @@ func _ready():
 	# NewSlot.size = CardSize
 	# $CardSlots.add_child(NewSlot)
 	# cardSlotEmpty.append(true)
+	#print(playerHand)
 	while(NumberCardsHand < 2):
 		drawCard()
 
@@ -113,14 +118,14 @@ func drawCard():
 	angle = PI/2 + CardSpread*(float(NumberCardsHand)/2 - NumberCardsHand)
 	var new_card = CardBase.instantiate()
 	CardSelected = randi() % DeckSize
-	new_card.Cardname = PlayerHand.CardList[CardSelected]
+	new_card.Cardname = playerHand[CardSelected]
 	new_card.position = DeckPosition
 	new_card.DiscardPile = DiscardPosition
 	new_card.scale = CardSize/new_card.size
 	new_card.state = MoveDrawnCardToHand
 	CardNum = 0
 	$Cards.add_child(new_card)
-	PlayerHand.CardList.erase(PlayerHand.CardList[CardSelected])
+	playerHand.erase(playerHand[CardSelected])
 	angle += 0.25
 	DeckSize -= 1
 	NumberCardsHand += 1

@@ -35,10 +35,11 @@ func _process(_delta):
 				Fight()
 
 func Fight():
-	if enemyArea.get_child_count() > 1:
-		if enemyArea.get_child(1).position.x < 400:
-			enemyArea.get_child(1).ChangeHealth(Attack)
-		timer.start(Speed)
+	if canFight:
+		if enemyArea.get_child_count() > 1:
+			if enemyArea.get_child(1).position.x < 400:
+				enemyArea.get_child(1).ChangeHealth(Attack)
+			timer.start(Speed)
 
 func ChangeHealth(Number):
 	#print("Creature Damage: " + str(Number))

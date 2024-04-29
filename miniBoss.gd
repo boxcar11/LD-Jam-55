@@ -17,5 +17,6 @@ func ChangeHealth(Number):
 	$VBoxContainer/Bar/TextureProgress.value = 100*currentHealth/maxHealth
 	$VBoxContainer/Bar/Count/Background/Number.text = str(currentHealth)
 
-func onDeath():
+func _onDeath():
+	pass
 	# Randomly gives player one new card

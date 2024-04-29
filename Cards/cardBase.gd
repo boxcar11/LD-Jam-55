@@ -51,6 +51,8 @@ var oldHealth
 var oldMaxHealth
 var oldSpeed
 
+var numEmpty = 0
+
 @onready var mouseIsIn = $"../../".mouseIsIn
 
 enum{
@@ -104,8 +106,10 @@ func _input(event):
 				for i in range(CardSlots.size()):
 					if cardSlotEmpty[i]:
 						if mouseIsIn[i]: 
-							if curSlot != null:
-								RemoveCard()
+							if CardInfo[0] == "Modifier":
+								break;
+							#if curSlot != null:
+								#RemoveCard()
 							cardSlotEmpty[i] = false
 							setup = true
 							MovingtoPlay = true		
@@ -196,13 +200,6 @@ func _physics_process(delta):
 		if CardSlots[i].Health <= 0 && !cardSlotEmpty[i]:
 			RemoveCard()
 			queue_free()
-
-	#Look for no more creatures
-	for i in range(CardSlots.size()):
-		if !cardSlotEmpty[i]:
-			break
-		else:
-			pass
 		
 	match state:
 		InHand:
@@ -368,6 +365,7 @@ func RemoveCard():
 	CardSlots[curSlot].get_child(2).visible = false
 	#CarsSlots[curSlot].get_child(1)
 	CardSlots[curSlot].canFight = false
+	CardSlots[curSlot].fighting = false
 	cardSlotEmpty[curSlot] = true
 
 func mouse_entered():

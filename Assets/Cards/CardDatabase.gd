@@ -26,7 +26,7 @@ const DATA = {
 	boots :
 		["Modifier",0,0,0,0, 0,"Boots of Speed", "", "+15% Attack Speed"],
 	earthElement :
-		["Units",0,0,0,0, 0,"Earth Elemental","Melee"," Natural Armor +1 Armor"],
+		["Units",1,1,1,1, 0,"Earth Elemental","Melee"," Natural Armor +1 Armor"],
 	flamingSkull :
 		["Enemies",0,0,0,0, 0,"Flaming Skull", "Ranged", ""],
 	potion001 :

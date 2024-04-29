@@ -30,6 +30,7 @@ const MAX_SPEED : int = 25
 var speed : float
 var screen_size : Vector2i
 var enemyStartCount = 0
+var gameStarted = false
 
 var bank : int = 0
 
@@ -113,7 +114,7 @@ func DropLoot(pos):
 		var coin = Coin.instantiate()
 		$Camera2D/SubViewportContainer/SubViewport/PlaySpace/Control.add_child(coin)
 		coin.position = pos + Vector2(600,0)
-	elif 2 == 2:
+	elif CardDropChance == 2:
 		playSpace.PickCard("potion001")
 	
 
@@ -128,3 +129,8 @@ func _on_EnemyStart_timeout():
 
 func _on_WaveCoolDown_timeout():
 	pass
+
+func GameOver():
+	if gameStarted:
+		print("Game Over")
+		get_tree().change_scene_to_file("res://Assets/GameOver.tscn")

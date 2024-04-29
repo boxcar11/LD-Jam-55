@@ -6,6 +6,7 @@ const PlayerHand = preload("res://Cards/PlayerHand.gd")
 const CardSlot = preload("res://Cards/card_slot.tscn")
 var CardSelected = []
 @onready var DeckSize = PlayerHand.CardList.size()
+@onready var main = $"/root"/Main
 
 @onready var CenterCardOval = get_viewport_rect().size * Vector2(0.4, 1.42)
 @onready var Hor_Rad = get_viewport().size.x*0.45
@@ -48,6 +49,8 @@ var CardSlots = numberColumns*numberRows
 @onready var Slot4 = $Control/HBoxContainer/VBoxContainer/Slot5
 var slots = []
 var mouseIsIn = []
+
+var emptyCount = 0;
 
 
 enum{
@@ -97,6 +100,15 @@ func _ready():
 	while(NumberCardsHand < 2):
 		drawCard()
 
+func _process(_delta):
+	emptyCount = 0;
+	for i in slots.size():
+		if slots[i].Card == null:
+			emptyCount += 1
+
+	if emptyCount == slots.size():
+		main.GameOver()
+
 func drawCard():
 	angle = PI/2 + CardSpread*(float(NumberCardsHand)/2 - NumberCardsHand)
 	var new_card = CardBase.instantiate()
@@ -135,6 +147,7 @@ func ReParentCard(CardNo):
 	var Card = $Cards.get_child(CardNo)
 	$Cards.remove_child(Card)
 	$CardsInPlay.add_child(Card)
+	main.gameStarted = true
 	OrganizeHand()
 
 func OrganizeHand():
